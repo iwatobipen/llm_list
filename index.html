@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Language Model Timeline (Horizontal), 2000–2026</title>
+<style>
+:root{--bg:#f7f7f4;--fg:#1d1d1b;--mut:#6b6b66;--line:#8d8d85;--card:#fff;--band:#00000008;--c:#c2410c;--o:#15803d;--t:#1d4ed8;--p:#a21caf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ececE6;--mut:#9a9a92;--line:#77776f;--card:#1e1e1c;--band:#ffffff0c;--c:#fb923c;--o:#4ade80;--t:#8ab4ff;--p:#e879f9}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ececE6;--mut:#9a9a92;--line:#77776f;--card:#1e1e1c;--band:#ffffff0c;--c:#fb923c;--o:#4ade80;--t:#8ab4ff;--p:#e879f9}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background-color:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.w{padding:24px 16px 40px}
+h1{font-size:26px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 12px}
+.lg{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-weight:600;font-size:13px}
+.lg span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:currentColor}
+.sc{overflow-x:auto;border:1px solid #8883;border-radius:10px;background:var(--bg)}
+.ch{position:relative;background-color:var(--bg)}
+.band{position:absolute;top:0;bottom:0;background:var(--band);border-left:1px dashed #8886}
+.band b{position:absolute;top:4px;left:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.ax{position:absolute;left:0;height:4px;background:var(--line);border-radius:2px}
+.tk{position:absolute;font-size:13px;font-weight:800;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 3px;transform:translateX(-50%);z-index:3;line-height:1.3}
+.tk.m{font-size:17px;padding:1px 6px;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.gl{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.14}
+.gl.m{opacity:.32}
+.pm{display:inline-block;margin-top:3px;padding:0 6px;border-radius:9px;font-size:10.5px;font-weight:700;background:#8882;color:var(--fg)}
+.pm.u{font-weight:500;color:var(--mut);font-style:italic}
+.ln{position:absolute;width:1.5px;opacity:.55}
+.dt{position:absolute;width:9px;height:9px;border-radius:50%;transform:translate(-4px,0);border:2px solid var(--bg)}
+.cd{position:absolute;width:165px;box-sizing:border-box;background:var(--card);border-radius:6px;border-left:4px solid;padding:4px 8px;font-size:12px;box-shadow:0 1px 3px #0002;z-index:2}
+.cd b{display:block;line-height:1.25}.cd small{color:var(--mut);font-size:10.5px}
+.cd i{font-style:normal;color:var(--mut);font-size:10px;float:right;margin-left:4px}
+.wrap{display:flex;background-color:var(--bg)}.ya{flex:0 0 60px;background-color:var(--bg);position:relative;font-size:11px;color:var(--fg)}
+.ya div{position:absolute;right:6px;transform:translateY(-50%);font-weight:700}
+.ya em{position:absolute;left:2px;top:4px;font-style:normal;font-size:10px;font-weight:700;color:var(--mut);line-height:1.2}
+.ov{position:absolute;left:0;top:0;pointer-events:none;z-index:5}
+.dim .cd{opacity:.5}
+.tg{display:inline-block;margin:0 0 10px;font-weight:600;font-size:13px;cursor:pointer}
+.lg span.ls::before{width:22px;height:0;border-radius:0;background:none;border-top:3px solid currentColor;vertical-align:3px}
+.lg span.ld::before{border-top-style:dashed}
+.foot{margin-top:10px;color:var(--mut);font-size:12px}
+</style></head><body><div class="w">
+<h1>Language Model Timeline, 2000–2026</h1>
+<p class="sub">One time axis, with a log-scale parameter-count overlay. Scroll sideways →</p>
+<div class="lg"><span style="color:var(--t)">Technical innovations (above axis, inner)</span><span style="color:var(--c)">Commercial models (above axis, outer)</span><span style="color:var(--o)">Open-weight models (below axis)</span><span class="ls" style="color:var(--c)">Largest disclosed commercial model (parameters)</span><span class="ls ld" style="color:var(--o)">Largest open-weight model (parameters)</span></div>
+<label class="tg"><input type="checkbox" id="tg" checked> Show parameter-count overlay (cards are dimmed while on)</label> <button id="th" style="margin-left:12px;font:600 13px inherit;padding:3px 10px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer">Theme: Light</button>
+<div class="wrap"><div class="ya" id="ya"></div><div class="sc"><div class="ch dim" id="ch"></div></div></div>
+<p class="foot">The time scale is compressed before 2019 and expanded afterwards, because releases are far denser in recent years. Dates are approximate first public release or publication; many models and papers are omitted. The parameter overlay uses the left log-scale axis, which is independent of the timeline axis in the middle. Each line is the running maximum of total parameters (MoE counted by total, not active) among models whose size is publicly disclosed. Commercial = closed-weight models; sizes of GPT-4 and later closed models are undisclosed, so that line stops being meaningful after early 2023. Open-weight = downloadable weights; research-only sparse checkpoints such as Google Switch-C (1.6T) and region-specific research models are excluded. Largest dense open model: Llama 3.1 405B. 2026 figures (DeepSeek-V4 Pro) come from secondary reports and should be verified. Parameter counts are totals (active parameters shown for MoE models); "undisclosed" means the developer has not published the size. Embedding and non-LLM entries show no count.</p>
+</div>
+<script>
+var D=[
+["t",2003,1,"Neural probabilistic LM","Bengio et al."],
+["t",2007,1,"Web-scale n-gram LMs","Google, trillions of tokens"],
+["t",2013,1,"word2vec","Word embeddings"],
+["t",2014,9,"Seq2Seq + attention","Sutskever; Bahdanau"],
+["t",2017,6,"Transformer","Attention Is All You Need"],
+["t",2018,10,"Pretrain, then fine-tune","ELMo, GPT-1, BERT"],
+["t",2019,10,"Text-to-text (T5)",""],
+["t",2020,1,"Scaling laws","Kaplan et al."],
+["t",2020,6,"Few-shot / in-context learning","GPT-3"],
+["t",2021,4,"RoPE; LoRA (Jun)",""],
+["t",2022,1,"Chain-of-thought",""],
+["t",2022,3,"InstructGPT (RLHF); Chinchilla",""],
+["t",2022,5,"FlashAttention",""],
+["t",2023,5,"QLoRA, DPO, GQA",""],
+["t",2023,12,"Mamba (state-space models)",""],
+["t",2024,9,"Test-time compute scaling","Reasoning models"],
+["t",2024,11,"Model Context Protocol",""],
+["t",2025,1,"RL with verifiable rewards","GRPO"],
+["t",2025,5,"Agentic coding & tool use",""],
+["c",2006,4,"Google Translate","Statistical MT with n-gram LMs"],
+["c",2016,9,"Google NMT","LSTM seq2seq in production"],
+["c",2018,6,"GPT-1","OpenAI"],
+["c",2020,6,"GPT-3 API","175B parameters"],
+["c",2021,6,"Codex / GitHub Copilot",""],
+["c",2021,8,"Jurassic-1","AI21 Labs"],
+["c",2022,11,"ChatGPT","Nov 30"],
+["c",2023,3,"GPT-4; Claude 1",""],
+["c",2023,7,"Claude 2",""],
+["c",2023,12,"Gemini 1.0","Google"],
+["c",2024,2,"Gemini 1.5","1M-token context"],
+["c",2024,3,"Claude 3",""],
+["c",2024,5,"GPT-4o","Native multimodal"],
+["c",2024,9,"OpenAI o1","Reasoning model"],
+["c",2025,2,"Claude 3.7 Sonnet",""],
+["c",2025,5,"Claude 4",""],
+["c",2025,8,"GPT-5",""],
+["c",2025,11,"Gemini 3",""],
+["c",2026,6,"Claude Fable 5 / Mythos 5","Anthropic"],
+["o",2013,1,"word2vec vectors","Google"],
+["o",2014,10,"GloVe","Stanford"],
+["o",2016,7,"fastText","Facebook"],
+["o",2018,10,"BERT","Google"],
+["o",2019,2,"GPT-2","Staged release to Nov"],
+["o",2019,10,"T5","Google"],
+["o",2021,6,"GPT-J 6B","EleutherAI"],
+["o",2022,5,"OPT","Meta"],
+["o",2022,7,"BLOOM","BigScience"],
+["o",2023,2,"LLaMA","Meta"],
+["o",2023,7,"Llama 2",""],
+["o",2023,9,"Mistral 7B",""],
+["o",2023,12,"Mixtral 8x7B","Open MoE"],
+["o",2024,2,"Gemma","Google"],
+["o",2024,4,"Llama 3",""],
+["o",2024,7,"Llama 3.1 405B",""],
+["o",2024,12,"DeepSeek-V3",""],
+["o",2025,1,"DeepSeek-R1","Open reasoning model"],
+["o",2025,4,"Llama 4; Qwen3",""],
+["o",2025,7,"Kimi K2",""],
+["o",2025,8,"gpt-oss","OpenAI"]
+];
+var SEG=[[2000,0,48],[2013,624,100],[2019,1224,260],[2023,2264,300]],END=2027,PAD=30;
+function X(t){var s=SEG[0];for(var i=0;i<SEG.length;i++)if(SEG[i][0]<=t)s=SEG[i];return PAD+s[1]+(t-s[0])*s[2]}
+var W=165,RH=74,G=8,AXG=40,col={c:"var(--c)",o:"var(--o)",t:"var(--t)"};
+function lay(l){var L=D.filter(function(d){return d[0]==l}).map(function(d){return{d:d,x:X(d[1]+(d[2]-1)/12)}}).sort(function(a,b){return a.x-b.x});var e=[];L.forEach(function(o){var r=0;while(e[r]!==undefined&&e[r]>o.x-6)r++;e[r]=o.x+W;o.r=r});return{L:L,n:e.length}}
+var P={"GPT-1":"117M params","GPT-3 API":"175B params","Codex / GitHub Copilot":"Codex: 12B params","Jurassic-1":"178B params (Jumbo)",
+"ChatGPT":"undisclosed","GPT-4; Claude 1":"undisclosed","Claude 2":"undisclosed","Gemini 1.0":"undisclosed","Gemini 1.5":"undisclosed","Claude 3":"undisclosed","GPT-4o":"undisclosed","OpenAI o1":"undisclosed","Claude 3.7 Sonnet":"undisclosed","Claude 4":"undisclosed","GPT-5":"undisclosed","Gemini 3":"undisclosed","Claude Fable 5 / Mythos 5":"undisclosed",
+"BERT":"110M / 340M params","GPT-2":"124M–1.5B params","T5":"60M–11B params","GPT-J 6B":"6B params","OPT":"125M–175B params","BLOOM":"176B params","LLaMA":"7B–65B params","Llama 2":"7B–70B params","Mistral 7B":"7.3B params","Mixtral 8x7B":"46.7B total / 12.9B active","Gemma":"2B / 7B params","Llama 3":"8B / 70B params","Llama 3.1 405B":"8B / 70B / 405B params","DeepSeek-V3":"671B total / 37B active","DeepSeek-R1":"671B total / 37B active","Llama 4; Qwen3":"Llama 4: 109B–400B MoE; Qwen3: 0.6B–235B","Kimi K2":"1T total / 32B active","gpt-oss":"21B / 117B total (MoE)"};
+var T=lay("t"),C=lay("c"),O=lay("o"),ch=document.getElementById("ch");
+var top0=26,hT=T.n*RH,hC=C.n*RH,A=top0+hC+14+hT+AXG,Wd=X(END)+20,H=A+AXG+10+O.n*RH+16;
+ch.style.width=Wd+"px";ch.style.height=H+"px";
+function el(c,s,h){var e=document.createElement("div");e.className=c;e.style.cssText=s;if(h)e.innerHTML=h;ch.appendChild(e);return e}
+[["Statistical & early neural",2000,2017.4],["Transformer & pretraining",2017.4,2020.4],["Scaling & ChatGPT era",2020.4,END]].forEach(function(b){el("band","left:"+X(b[1])+"px;width:"+(X(b[2])-X(b[1]))+"px","<b>"+b[0]+"</b>")});
+el("ax","top:"+A+"px;width:"+Wd+"px");
+for(var y=2000;y<=2026;y++){el("gl"+(y%5==0?" m":""),"left:"+X(y)+"px");el("tk"+(y%5==0?" m":""),"left:"+X(y)+"px;top:"+(A+(y%5==0?8:10))+"px",y)}
+function place(o,l,top,up){var x=o.x,c=col[l];
+ var ly=up?top+RH-G:A+3, lh=up?A-(top+RH-G):top-A;
+ el("ln","left:"+x+"px;top:"+(up?top+RH-G:A+3)+"px;height:"+(up?A-(top+RH-G):top-A-3)+"px;background:"+c);
+ el("dt","left:"+x+"px;top:"+(A-3)+"px;background:"+c);
+ var pv=P[o.d[3]],d=o.d,mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d[2]-1];
+ el("cd","left:"+(x-1)+"px;top:"+top+"px;border-color:"+c,"<i>"+mo+" "+d[1]+"</i><b>"+d[3]+"</b>"+(d[4]?"<small>"+d[4]+"</small>":"")+(pv?(pv=="undisclosed"?"<span class=\"pm u\">params undisclosed</span>":"<span class=\"pm\">"+pv+"</span>"):""))}
+T.L.forEach(function(o){place(o,"t",A-AXG-(o.r+1)*RH,true)});
+var cb=A-AXG-hT-14;
+C.L.forEach(function(o){place(o,"c",cb-(o.r+1)*RH,true)});
+O.L.forEach(function(o){place(o,"o",A+AXG+o.r*RH,false)});
+
+var R=[
+["c",2020,6,1.75e11,"GPT-3 175B",-6,-8,"end"],
+["c",2021,8,1.78e11,"Jurassic-1 Jumbo 178B",6,-8,"start"],
+["o",2018,10,3.4e8,"BERT-Large 340M",6,16,"start"],
+["o",2019,10,1.1e10,"T5 11B",6,16,"start"],
+["o",2022,2,2e10,"GPT-NeoX 20B",6,16,"start"],
+["o",2022,5,1.75e11,"OPT 175B / BLOOM 176B",6,16,"start"],
+["o",2022,7,1.76e11,"",0,0,"start"],
+["o",2023,9,1.8e11,"Falcon 180B",6,16,"start"],
+["o",2024,3,3.14e11,"Grok-1 314B",6,16,"start"],
+["o",2024,4,4.8e11,"Arctic 480B",-6,-8,"end"],
+["o",2024,12,6.71e11,"DeepSeek-V3 671B",6,16,"start"],
+["o",2025,7,1e12,"Kimi K2 1T",6,16,"start"],
+["o",2026,4,1.6e12,"DeepSeek-V4 Pro 1.6T",-6,-8,"end"]];
+var pt=36,pb=H-24,xe=X(2026.8),xu=X(2023+2/12);
+function Y(v){return pb-(Math.log(v)/Math.LN10-8)/5*(pb-pt)}
+function RX(r){return X(r[1]+(r[2]-1)/12)}
+var ca=R.filter(function(r){return r[0]=="c"}),oa=R.filter(function(r){return r[0]=="o"}),cc={c:"var(--c)",o:"var(--o)"};
+function path(a,xend){var d="M"+RX(a[0])+","+Y(a[0][3]);for(var i=1;i<a.length;i++)d+=" H"+RX(a[i])+" V"+Y(a[i][3]);return d+" H"+xend}
+var sv='<svg width="'+Wd+'" height="'+H+'">',lab=["100M","1B","10B","100B","1T","10T"],ya=document.getElementById("ya");
+ya.style.height=H+"px";ya.innerHTML="<em>Parameters<br>(log)</em>";
+for(var k=0;k<6;k++){var yy=Y(Math.pow(10,8+k));sv+='<line x1="0" x2="'+Wd+'" y1="'+yy+'" y2="'+yy+'" style="stroke:var(--line);opacity:.5" stroke-dasharray="3 5"/>';var dv=document.createElement("div");dv.style.top=(yy+1)+"px";dv.textContent=lab[k];ya.appendChild(dv)}
+sv+='<path d="'+path(oa,xe)+'" fill="none" style="stroke:var(--o)" stroke-width="3.5" stroke-dasharray="11 6"/>';
+sv+='<path d="'+path(ca,xu)+'" fill="none" style="stroke:var(--c)" stroke-width="3.5"/>';
+sv+='<path d="M'+xu+','+Y(1.78e11)+' H'+xe+'" fill="none" style="stroke:var(--c)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>';
+function tx(x,y,t,c,a){return '<text x="'+x+'" y="'+y+'" text-anchor="'+a+'" font-size="12" font-weight="800" style="fill:'+c+';stroke:var(--bg);paint-order:stroke" stroke-width="4">'+t+'</text>'}
+R.forEach(function(r){var x=RX(r),y=Y(r[3]);sv+='<circle cx="'+x+'" cy="'+y+'" r="5.5" stroke-width="2.5" style="stroke:'+cc[r[0]]+';fill:'+cc[r[0]]+'"/>';if(r[4])sv+=tx(x+r[5],y+r[6],r[4],cc[r[0]],r[7])});
+sv+=tx(xu+8,Y(1.78e11)-8,"GPT-4 and later: sizes undisclosed","var(--c)","start");
+sv+='</svg>';
+var ovd=document.createElement("div");ovd.className="ov";ovd.innerHTML=sv;ch.appendChild(ovd);
+document.getElementById("tg").onchange=function(){var on=this.checked;ovd.style.display=on?"":"none";ya.style.visibility=on?"visible":"hidden";ch.classList.toggle("dim",on)};
+document.getElementById("th").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme")!=="dark";r.setAttribute("data-theme",d?"dark":"light");this.textContent="Theme: "+(d?"Dark":"Light")};
+</script></body></html>

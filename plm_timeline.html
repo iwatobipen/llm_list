@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Protein Language Model Timeline, 2014–2026</title>
+<style>
+:root{--bg:#f7f7f4;--fg:#1d1d1b;--mut:#6b6b66;--line:#8d8d85;--card:#fff;--band:#00000008;--c:#c2410c;--o:#15803d;--t:#1d4ed8;--p:#a21caf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ececE6;--mut:#9a9a92;--line:#77776f;--card:#1e1e1c;--band:#ffffff0c;--c:#fb923c;--o:#4ade80;--t:#8ab4ff;--p:#e879f9}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ececE6;--mut:#9a9a92;--line:#77776f;--card:#1e1e1c;--band:#ffffff0c;--c:#fb923c;--o:#4ade80;--t:#8ab4ff;--p:#e879f9}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background-color:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.w{padding:24px 16px 40px}
+h1{font-size:26px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 12px}
+.lg{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-weight:600;font-size:13px}
+.lg span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:currentColor}
+.sc{overflow-x:auto;border:1px solid #8883;border-radius:10px;background:var(--bg)}
+.ch{position:relative;background-color:var(--bg)}
+.band{position:absolute;top:0;bottom:0;background:var(--band);border-left:1px dashed #8886}
+.band b{position:absolute;top:4px;left:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.ax{position:absolute;left:0;height:4px;background:var(--line);border-radius:2px}
+.tk{position:absolute;font-size:13px;font-weight:800;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 3px;transform:translateX(-50%);z-index:3;line-height:1.3}
+.tk.m{font-size:17px;padding:1px 6px;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.gl{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.14}
+.gl.m{opacity:.32}
+.pm{display:inline-block;margin-top:3px;padding:0 6px;border-radius:9px;font-size:10.5px;font-weight:700;background:#8882;color:var(--fg)}
+.pm.u{font-weight:500;color:var(--mut);font-style:italic}
+.ln{position:absolute;width:1.5px;opacity:.55}
+.dt{position:absolute;width:9px;height:9px;border-radius:50%;transform:translate(-4px,0);border:2px solid var(--bg)}
+.cd{position:absolute;width:165px;box-sizing:border-box;background:var(--card);border-radius:6px;border-left:4px solid;padding:4px 8px;font-size:12px;box-shadow:0 1px 3px #0002;z-index:2}
+.cd b{display:block;line-height:1.25}.cd small{color:var(--mut);font-size:10.5px}
+.cd i{font-style:normal;color:var(--mut);font-size:10px;float:right;margin-left:4px}
+.wrap{display:flex;background-color:var(--bg)}.ya{flex:0 0 60px;background-color:var(--bg);position:relative;font-size:11px;color:var(--fg)}
+.ya div{position:absolute;right:6px;transform:translateY(-50%);font-weight:700}
+.ya em{position:absolute;left:2px;top:4px;font-style:normal;font-size:10px;font-weight:700;color:var(--mut);line-height:1.2}
+.ov{position:absolute;left:0;top:0;pointer-events:none;z-index:5}
+.dim .cd{opacity:.5}
+.tg{display:inline-block;margin:0 0 10px;font-weight:600;font-size:13px;cursor:pointer}
+.lg span.ls::before{width:22px;height:0;border-radius:0;background:none;border-top:3px solid currentColor;vertical-align:3px}
+.lg span.ld::before{border-top-style:dashed}
+.foot{margin-top:10px;color:var(--mut);font-size:12px}
+</style></head><body><div class="w">
+<h1>Protein Language Model Timeline, 2014–2026</h1>
+<p class="sub">One time axis, with a log-scale parameter-count overlay. Scroll sideways →</p>
+<div class="lg"><span style="color:var(--t)">Technical innovations (above axis, inner)</span><span style="color:var(--c)">Commercial / closed models (above axis, outer)</span><span style="color:var(--o)">Open-weight models (below axis)</span><span class="ls" style="color:var(--c)">Largest closed (commercial) model: parameters</span><span class="ls ld" style="color:var(--o)">Largest open-weight model: parameters</span></div>
+<label class="tg"><input type="checkbox" id="tg" checked> Show parameter-count overlay (cards are dimmed while on)</label> <button id="th" style="margin-left:12px;font:600 13px inherit;padding:3px 10px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer">Theme: Light</button>
+<div class="wrap"><div class="ya" id="ya"></div><div class="sc"><div class="ch dim" id="ch"></div></div></div>
+<p class="foot">Dates are approximate first preprint or release; many models are omitted. Commercial = closed weights or API/platform access; open-weight = downloadable weights (licenses vary, some non-commercial). The parameter overlay uses the left log-scale axis, independent of the timeline axis. Lines are running maxima of total parameters; hollow points are notable non-record models. xTrimoPGLM-100B is plotted as closed when announced (Jul 2023) and as open from the Jan 2024 release of INT4-quantized weights. ESM3 98B and ESM C 6B are API-only; ProGen3 weight availability was not verified, so it is treated as closed. 2026 entries (ProtGPT3) are from preprints and should be verified.</p>
+</div>
+<script>
+var D=[
+["t",2015,11,"ProtVec","word2vec-style embeddings of protein 3-mers"],
+["t",2018,8,"LSTM protein LM","UniRep: unsupervised representations"],
+["t",2019,4,"Transformer pLM at scale","ESM-1: masked LM on UniRef50"],
+["t",2019,6,"TAPE benchmark","Standardized evaluation tasks"],
+["t",2020,3,"Conditional generation","ProGen: control tags"],
+["t",2020,7,"BERT / T5-style pLMs","ProtTrans, up to 11B"],
+["t",2020,12,"AlphaFold2 (CASP14)","Evoformer; Nature paper Jul 2021"],
+["t",2021,2,"Alignment-aware pLM","MSA Transformer"],
+["t",2021,7,"Zero-shot variant effects","ESM-1v"],
+["t",2022,4,"Inverse folding","ESM-IF1; ProteinMPNN (Jun)"],
+["t",2022,7,"MSA-free structure prediction","ESM-2 + ESMFold"],
+["t",2023,7,"Unified MLM + CLM at 100B","xTrimoPGLM"],
+["t",2023,9,"Discrete diffusion on sequences","EvoDiff"],
+["t",2023,10,"Structure-aware vocabulary","SaProt: Foldseek 3Di + AA"],
+["t",2024,6,"Multimodal generative pLM","ESM3: sequence + structure + function"],
+["t",2024,9,"Data curation over size","AMPLIFY"],
+["t",2025,4,"Scaling laws + sparse MoE","ProGen3, wet-lab validated"],
+["t",2026,6,"Homolog prompting + RL alignment","ProtGPT3"],
+["c",2022,9,"NVIDIA BioNeMo","Platform hosting ESM-2, ProtT5, etc."],
+["c",2023,7,"xTrimo 100B","BioMap, announced Jul 2023"],
+["c",2024,6,"ESM3 (Forge API)","EvolutionaryScale"],
+["c",2024,12,"ESM C (Forge API)","6B via API; smaller models open"],
+["c",2025,4,"ProGen3","Profluent"],
+["o",2018,8,"UniRep","Church lab"],
+["o",2019,4,"ESM-1 / ESM-1b","Meta AI (FAIR)"],
+["o",2020,3,"ProGen","Salesforce Research"],
+["o",2020,7,"ProtTrans","Rostlab / TUM"],
+["o",2021,2,"MSA Transformer","Meta AI"],
+["o",2021,7,"ESM-1v","Meta AI"],
+["o",2022,1,"ProtGPT2","Ferruz lab"],
+["o",2022,6,"ProGen2","Salesforce Research"],
+["o",2022,7,"ESM-2 / ESMFold","Meta AI, MIT license"],
+["o",2023,1,"Ankh","Data-efficient pLM"],
+["o",2023,10,"SaProt","Westlake University"],
+["o",2024,1,"xTrimoPGLM (open)","BioMap / Tsinghua"],
+["o",2024,3,"DPLM","ByteDance Research"],
+["o",2024,6,"ESM3-open","Non-commercial license"],
+["o",2024,9,"AMPLIFY","Chandar lab / Amgen"],
+["o",2024,12,"ESM C (open)","EvolutionaryScale; 6B via API"],
+["o",2026,6,"ProtGPT3","Open family on Hugging Face"]
+];
+var SEG=[[2014,0,70],[2018,280,170],[2022,960,300]],END=2027,PAD=30;
+function X(t){var s=SEG[0];for(var i=0;i<SEG.length;i++)if(SEG[i][0]<=t)s=SEG[i];return PAD+s[1]+(t-s[0])*s[2]}
+var W=165,RH=74,G=8,AXG=40,col={c:"var(--c)",o:"var(--o)",t:"var(--t)"};
+function lay(l){var L=D.filter(function(d){return d[0]==l}).map(function(d){return{d:d,x:X(d[1]+(d[2]-1)/12)}}).sort(function(a,b){return a.x-b.x});var e=[];L.forEach(function(o){var r=0;while(e[r]!==undefined&&e[r]>o.x-6)r++;e[r]=o.x+W;o.r=r});return{L:L,n:e.length}}
+var P={"UniRep":"18.2M params","ESM-1 / ESM-1b":"670M / 650M params","ProGen":"1.2B params","ProtTrans":"up to 11B params (ProtT5-XXL)","MSA Transformer":"100M params","ESM-1v":"650M params","ProtGPT2":"738M params","ProGen2":"151M–6.4B params","ESM-2 / ESMFold":"8M–15B params","Ankh":"450M / 1.15B params","SaProt":"650M params","xTrimoPGLM (open)":"1B–10B; 100B INT4","DPLM":"150M–3B params","ESM3-open":"1.4B params","AMPLIFY":"120M / 350M params","ESM C (open)":"300M / 600M params","ProtGPT3":"112M–10B params","xTrimo 100B":"100B params","ESM3 (Forge API)":"98B (1.4B open)","ESM C (Forge API)":"6B via API","ProGen3":"112M–46B (MoE)"};
+var T=lay("t"),C=lay("c"),O=lay("o"),ch=document.getElementById("ch");
+var top0=26,hT=T.n*RH,hC=C.n*RH,A=top0+hC+14+hT+AXG,Wd=X(END)+20,H=A+AXG+10+O.n*RH+16;
+ch.style.width=Wd+"px";ch.style.height=H+"px";
+function el(c,s,h){var e=document.createElement("div");e.className=c;e.style.cssText=s;if(h)e.innerHTML=h;ch.appendChild(e);return e}
+[["Embeddings & recurrent models",2014,2019.3],["Transformer protein LMs",2019.3,2022.5],["Scaling, multimodal & generative era",2022.5,END]].forEach(function(b){el("band","left:"+X(b[1])+"px;width:"+(X(b[2])-X(b[1]))+"px","<b>"+b[0]+"</b>")});
+el("ax","top:"+A+"px;width:"+Wd+"px");
+for(var y=2014;y<=2026;y++){el("gl"+(y%5==0?" m":""),"left:"+X(y)+"px");el("tk"+(y%5==0?" m":""),"left:"+X(y)+"px;top:"+(A+(y%5==0?8:10))+"px",y)}
+function place(o,l,top,up){var x=o.x,c=col[l];
+ var ly=up?top+RH-G:A+3, lh=up?A-(top+RH-G):top-A;
+ el("ln","left:"+x+"px;top:"+(up?top+RH-G:A+3)+"px;height:"+(up?A-(top+RH-G):top-A-3)+"px;background:"+c);
+ el("dt","left:"+x+"px;top:"+(A-3)+"px;background:"+c);
+ var pv=P[o.d[3]],d=o.d,mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d[2]-1];
+ el("cd","left:"+(x-1)+"px;top:"+top+"px;border-color:"+c,"<i>"+mo+" "+d[1]+"</i><b>"+d[3]+"</b>"+(d[4]?"<small>"+d[4]+"</small>":"")+(pv?(pv=="undisclosed"?"<span class=\"pm u\">params undisclosed</span>":"<span class=\"pm\">"+pv+"</span>"):""))}
+T.L.forEach(function(o){place(o,"t",A-AXG-(o.r+1)*RH,true)});
+var cb=A-AXG-hT-14;
+C.L.forEach(function(o){place(o,"c",cb-(o.r+1)*RH,true)});
+O.L.forEach(function(o){place(o,"o",A+AXG+o.r*RH,false)});
+
+var R=[
+["c",2023,7,1e11,"xTrimo 100B (closed)",6,-8,"start",1],
+["c",2024,6,9.8e10,"ESM3 98B (API)",6,16,"start",0],
+["c",2024,12,6e9,"ESM C 6B (API)",6,16,"start",0],
+["c",2025,4,4.6e10,"ProGen3 46B",6,16,"start",0],
+["o",2018,8,1.82e7,"UniRep 18M",6,16,"start",1],
+["o",2019,4,6.7e8,"ESM-1 670M",6,16,"start",1],
+["o",2020,3,1.2e9,"ProGen 1.2B",6,16,"start",1],
+["o",2020,7,1.1e10,"ProtT5-XXL 11B",6,16,"start",1],
+["o",2022,1,7.38e8,"ProtGPT2 738M",6,16,"start",0],
+["o",2022,6,6.4e9,"ProGen2 6.4B",-6,16,"end",0],
+["o",2022,7,1.5e10,"ESM-2 15B",6,-8,"start",1],
+["o",2024,1,1e11,"xTrimoPGLM 100B (INT4)",6,16,"start",1],
+["o",2024,6,1.4e9,"ESM3-open 1.4B",6,16,"start",0],
+["o",2024,12,6e8,"ESM C 600M",6,16,"start",0],
+["o",2026,6,1e10,"ProtGPT3 10B",-6,16,"end",0]];
+var pt=36,pb=H-24,xe=X(2026.8);
+function Y(v){return pb-(Math.log(v)/Math.LN10-7)/5*(pb-pt)}
+function RX(r){return X(r[1]+(r[2]-1)/12)}
+var ca=R.filter(function(r){return r[0]=="c"&&r[8]}),oa=R.filter(function(r){return r[0]=="o"&&r[8]}),cc={c:"var(--c)",o:"var(--o)"};
+function path(a,xend){var d="M"+RX(a[0])+","+Y(a[0][3]);for(var i=1;i<a.length;i++)d+=" H"+RX(a[i])+" V"+Y(a[i][3]);return d+" H"+xend}
+var sv='<svg width="'+Wd+'" height="'+H+'">',lab=["10M","100M","1B","10B","100B","1T"],ya=document.getElementById("ya");
+ya.style.height=H+"px";ya.innerHTML="<em>Parameters<br>(log)</em>";
+for(var k=0;k<6;k++){var yy=Y(Math.pow(10,7+k));sv+='<line x1="0" x2="'+Wd+'" y1="'+yy+'" y2="'+yy+'" style="stroke:var(--line);opacity:.5" stroke-dasharray="3 5"/>';var dv=document.createElement("div");dv.style.top=(yy+1)+"px";dv.textContent=lab[k];ya.appendChild(dv)}
+sv+='<path d="'+path(oa,xe)+'" fill="none" style="stroke:var(--o)" stroke-width="3.5" stroke-dasharray="11 6"/>';
+sv+='<path d="'+path(ca,xe)+'" fill="none" style="stroke:var(--c)" stroke-width="3.5"/>';
+function tx(x,y,t,c,a){return '<text x="'+x+'" y="'+y+'" text-anchor="'+a+'" font-size="12" font-weight="800" style="fill:'+c+';stroke:var(--bg);paint-order:stroke" stroke-width="4">'+t+'</text>'}
+R.forEach(function(r){var x=RX(r),y=Y(r[3]),c=cc[r[0]];sv+='<circle cx="'+x+'" cy="'+y+'" r="5.5" stroke-width="2.5" style="stroke:'+c+';fill:'+(r[8]?c:"var(--bg)")+'"/>'+tx(x+r[5],y+r[6],r[4],c,r[7])});
+sv+='</svg>';
+var ovd=document.createElement("div");ovd.className="ov";ovd.innerHTML=sv;ch.appendChild(ovd);
+document.getElementById("tg").onchange=function(){var on=this.checked;ovd.style.display=on?"":"none";ya.style.visibility=on?"visible":"hidden";ch.classList.toggle("dim",on)};
+document.getElementById("th").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme")!=="dark";r.setAttribute("data-theme",d?"dark":"light");this.textContent="Theme: "+(d?"Dark":"Light")};
+</script></body></html>
